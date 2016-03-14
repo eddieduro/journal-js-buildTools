@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
 var del = require('del');
 var buildProduction = utilities.env.production;
+var jshint = require('gulp-jshint');
 
 gulp.task('test', function () {
   return gulp.src(['./specs/specs.js'], {read: false})
@@ -36,4 +37,10 @@ gulp.task('build', ['clean'], function() {
     gulp.start('test');
     gulp.start('jsBrowserify');
   };
+});
+
+gulp.task('jshint', function(){
+  return gulp.src(['js/*.js'])
+  .pipe(jshint())
+  .pipe(jshint.reporter('default'));
 });
