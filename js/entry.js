@@ -3,6 +3,15 @@ exports.Entry = function(title, body){
   this.body = body
 }
 
-// Entry.prototype.wordCount = function(){
-//
-// }
+exports.Entry.prototype.wordCount = function(){
+  var words = [];
+  var word_arr = this.body.split(" ");
+  // this.body.forEach(function(word){
+  //   words.push(word);
+  // });
+  for (var i = 0; i < word_arr.length; i++){
+    words.push(word_arr[i]);
+  }
+  console.log(words);
+  return words.length;
+}

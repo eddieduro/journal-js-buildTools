@@ -17,6 +17,15 @@ describe("Entry", function() {
         var testEntry = new Entry(title, body);
         expect(testEntry.body).to.equal(body);
       });
+
+      describe("wordCount", function() {
+        it("will return the number of words in an entry", function() {
+          var title = "welcome";
+          var body = "random text";
+          var testEntry = new Entry(title, body);
+          expect(testEntry.wordCount()).to.equal(2);
+        });
+      });
     });
   });
 });
